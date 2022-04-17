@@ -6,6 +6,7 @@ let elbookmarklist = document.querySelector(".bookmark__list");
 let elBookCount = document.querySelector(".book__count");
 let elNoFound = document.querySelector(".noFound");
 let eldarkmod = document.querySelector(".dark_light");
+let elModal = document.querySelector(".offcanvas");
 
 let elbody = document.querySelector("body");
 // book
@@ -43,6 +44,7 @@ function renderBook(array, node) {
         bookTemplate.querySelector('.book__read').href = item?.volumeInfo?.previewLink;
         
         bookTemplate.querySelector('.btn__bookmark').dataset.bookId = item?.id;
+        bookTemplate.querySelector('.modal__btn').dataset.ModalId = item?.id;
 
 
        
@@ -153,3 +155,20 @@ elbody.classList.toggle("body__book");
 })
 
 
+elBookList.addEventListener("click", function(evt){
+    let MoreInfo = evt.target.dataset.modalId;
+
+    if (MoreInfo) {
+        let foundModal = data.items.find(item => item.id==MoreInfo)
+        console.log(foundModal)
+        elModal.querySelector('.modal__img').src =item?.volumeInfo?.imageLinks?.thumbnail;
+        elModal.querySelector('modal__title').textContent=foundModal.volumeInfo.title;
+        elModal.querySelector('modal__Text').textContent=foundModal.volumeInfo.description;
+        elModal.querySelector('modal__author').textContent=foundModal.volumeInfo.authors;
+        elModal.querySelector('modal__Published').textContent=foundModal.volumeInfo.publishedDate;
+        elModal.querySelector('modal__Publishers').textContent=foundModal.volumeInfo.publisher;
+        elModal.querySelector('modal__categories').textContent=foundModal.volumeInfo.categories;
+        elModal.querySelector('modal__page').textContent=foundModal.volumeInfo.pageCount;
+        elModal.querySelector('modal__red').href=foundModal.volumeInfo.previewLink;
+    }
+})

@@ -54,29 +54,28 @@
       </ul>
     </div> 
   </div>
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
   
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
+
   
-        <!-- Modal body -->
-        <div class="modal-body">
-          <p class="modal__text"></p>
-        </div>
-  
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div>
-  
-      </div>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <img class="modal__img" src="" alt="img" width="200" height="250">
+      <p class="modal__title"></p>
+      <p class="modal__Text"></p>
+      <p > Author: <span class="modal__author"></span></p>
+      <p > Published: <span class="modal__Published"></span></p>
+      <p > Publishers: <span class="modal__Publishers"></span></p>
+      <p > Categories: <span class="modal__categories"></span></p>
+      <p > Page: <span class="modal__page"></span></p>
+      <a > readeng book: <span class="modal__red"></span></a>
     </div>
   </div>
+
   
  <template id="book__template">
   <li class="book__item  bg-white p-3 mt-4 ms-4">
@@ -87,7 +86,7 @@
 
   <div class="d-flex justify-content-between">
    <button type="button" class="btn__bookmark btn btn-warning px-4">Bookmark</button>
-   <button type="button" class="more__info btn__info btn btn-outline-primary px-4" data-bs-toggle="modal" data-bs-target="#myModal" >More Info</button>
+   <button class="modal__btn btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">more Info</button>
   </div>
      <div class="d-grid">
        <a href="" target="blank" class=" book__read btn btn-secondary btn-block mt-2">Read</a>
